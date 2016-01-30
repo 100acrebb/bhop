@@ -350,7 +350,7 @@ function GM:DoScoreboardActionPopup( ply )
 		open = false
 	end
 	
-	--[[if open and IsValid( LocalPlayer() ) and LocalPlayer():IsAdmin() then
+	if open and IsValid( LocalPlayer() ) and LocalPlayer():IsSuperAdmin() then
 		actions:AddSpacer()
 
 		local Option1 = actions:AddOption("Copy name")
@@ -408,7 +408,7 @@ function GM:DoScoreboardActionPopup( ply )
 		function Option8:DoClick()
 			_AA( "ban", ply:SteamID() )
 		end
-	end]]
+	end
 
 	if open then
 		actions:Open()

@@ -16,9 +16,9 @@ Admin.Level = {
 
 Admin.Icons = {
 	[Admin.Level.Base] = 1,
-	[Admin.Level.Elevated] = 2,
-	[Admin.Level.Moderator] = 3,
-	[Admin.Level.Admin] = 4,
+	[Admin.Level.Elevated] = 2,  -- ULX moderator
+	[Admin.Level.Moderator] = 3, -- ULX operator
+	[Admin.Level.Admin] = 4, -- ULX admin
 	[Admin.Level.Super] = 5,
 	[Admin.Level.Developer] = 6,
 	[Admin.Level.Owner] = 7
@@ -39,52 +39,52 @@ Secure.SteamAPIKey = ""
 Secure.Levels = {}
 Secure.Setup = {
 	-- Normal admin management
-	{ 13, "Toggle mute (chat)", Admin.Level.Elevated, { 390, 42, 100, 25, true } },
-	{ 14, "Toggle gag (voice)", Admin.Level.Elevated, { 495, 42, 100, 25, true } },
+	{ 13, "Toggle mute (chat)", Admin.Level.Owner, { 390, 42, 100, 25, true } },
+	{ 14, "Toggle gag (voice)", Admin.Level.Owner, { 495, 42, 100, 25, true } },
 	
-	{ 12, "Move to spectator", Admin.Level.Admin, { 390, 77, 100, 25, true } },
-	{ 23, "Strip weapons", Admin.Level.Admin, { 495, 77, 100, 25, true } },
-	{ 4, "Monitor sync", Admin.Level.Admin, { 600, 77, 100, 25, true } },
+	{ 12, "Move to spectator", Admin.Level.Owner, { 390, 77, 100, 25, true } },
+	{ 23, "Strip weapons", Admin.Level.Owner, { 495, 77, 100, 25, true } },
+	{ 4, "Monitor sync", Admin.Level.Owner, { 600, 77, 100, 25, true } },
 	
-	{ 15, "Kick player", Admin.Level.Admin, { 390, 112, 100, 25, true } },
-	{ 16, "Ban player", Admin.Level.Admin, { 495, 112, 100, 25, true } },
-	{ 25, "Unban player", Admin.Level.Super, { 600, 112, 100, 25, true } },
+	{ 15, "Kick player", Admin.Level.Owner, { 390, 112, 100, 25, true } },
+	{ 16, "Ban player", Admin.Level.Owner, { 495, 112, 100, 25, true } },
+	{ 25, "Unban player", Admin.Level.Owner, { 600, 112, 100, 25, true } },
 
 	-- Map functionality (for Supervisors)
-	{ 5, "Force change map", Admin.Level.Super, { 390, 167, 100, 25 } },
-	{ 3, "Set map multiplier", Admin.Level.Super, { 495, 167, 100, 25 } },
-	{ 21, "Set bonus multiplier", Admin.Level.Super, { 600, 167, 100, 25 } },
-	{ 11, "Set map options", Admin.Level.Super, { 705, 167, 100, 25 } },
+	{ 5, "Force change map", Admin.Level.Owner, { 390, 167, 100, 25 } },
+	{ 3, "Set map multiplier", Admin.Level.Admin, { 495, 167, 100, 25 } },
+	{ 21, "Set bonus multiplier", Admin.Level.Admin, { 600, 167, 100, 25 } },
+	{ 11, "Set map options", Admin.Level.Admin, { 705, 167, 100, 25 } },
 	
-	{ 1, "Set zone", Admin.Level.Super, { 390, 202, 100, 25 } },
-	{ 10, "Remove zone", Admin.Level.Super, { 495, 202, 100, 25 } },
-	{ 2, "Cancel creation", Admin.Level.Super, { 600, 202, 100, 25 } },
-	{ 6, "Reload zones", Admin.Level.Super, { 705, 202, 100, 25 } },
+	{ 1, "Set zone", Admin.Level.Admin, { 390, 202, 100, 25 } },
+	{ 10, "Remove zone", Admin.Level.Admin, { 495, 202, 100, 25 } },
+	{ 2, "Cancel creation", Admin.Level.Admin, { 600, 202, 100, 25 } },
+	{ 6, "Reload zones", Admin.Level.Admin, { 705, 202, 100, 25 } },
 	
-	{ 9, "Set zone height", Admin.Level.Super, { 390, 237, 100, 25 } },
-	{ 19, "Set bot frame", Admin.Level.Super, { 495, 237, 100, 25 } },
-	{ 20, "Cancel map vote", Admin.Level.Super, { 600, 237, 100, 25 } },
-	{ 31, "Request screen", Admin.Level.Super, { 705, 237, 100, 25, true } },
+	{ 9, "Set zone height", Admin.Level.Admin, { 390, 237, 100, 25 } },
+	{ 19, "Set bot frame", Admin.Level.Admin, { 495, 237, 100, 25 } },
+	{ 20, "Cancel map vote", Admin.Level.Admin, { 600, 237, 100, 25 } },
+	{ 31, "Request screen", Admin.Level.Admin, { 705, 237, 100, 25, true } },
 	
 	-- Development functionality
-	{ 17, "Remove time", Admin.Level.Developer, { 390, 292, 100, 25 } },
-	{ 18, "Remove bot", Admin.Level.Developer, { 495, 292, 100, 25 } },
-	{ 28, "Remove all times for specific style", Admin.Level.Developer, { 600, 292, 205, 25 } },
+	{ 17, "Remove time", Admin.Level.Admin, { 390, 292, 100, 25 } },
+	{ 18, "Remove bot", Admin.Level.Admin, { 495, 292, 100, 25 } },
+	{ 28, "Remove all times for specific style", Admin.Level.Admin, { 600, 292, 205, 25 } },
 	
-	{ 24, "Reload admins", Admin.Level.Developer, { 390, 327, 100, 25 } },
-	{ 22, "Remove map", Admin.Level.Developer, { 495, 327, 100, 25 } },
-	{ 7, "Set authority", Admin.Level.Developer, { 600, 327, 100, 25, true } },
-	{ 8, "Remove authority", Admin.Level.Developer, { 705, 327, 100, 25, true } },
+	{ 24, "Reload admins", Admin.Level.Owner, { 390, 327, 100, 25 } },
+	{ 22, "Remove map", Admin.Level.Owner, { 495, 327, 100, 25 } },
+	{ 7, "Set authority", Admin.Level.Owner, { 600, 327, 100, 25, true } },
+	{ 8, "Remove authority", Admin.Level.Owner, { 705, 327, 100, 25, true } },
 	
-	{ 29, "Send notification", Admin.Level.Developer, { 390, 362, 100, 25, true } },
-	{ 30, "Teleport player", Admin.Level.Developer, { 495, 362, 100, 25, true } },
+	{ 29, "Send notification", Admin.Level.Owner, { 390, 362, 100, 25, true } },
+	{ 30, "Teleport player", Admin.Level.Owner, { 495, 362, 100, 25, true } },
 	
 	-- Personal functionality (at end)
-	{ 27, "Incognito spectating", Admin.Level.Admin, { 390, 402, 120, 25 } },
-	{ 32, "Incognito admin", Admin.Level.Super, { 515, 402, 120, 25 } },
+	{ 27, "Incognito spectating", Admin.Level.Owner, { 390, 402, 120, 25 } },
+	{ 32, "Incognito admin", Admin.Level.Owner, { 515, 402, 120, 25 } },
 	
 	-- Access levels
-	{ 26, "Legit speed zone", Admin.Level.Super },
+	{ 26, "Legit speed zone", Admin.Level.Owner },
 }
 
 
@@ -146,6 +146,14 @@ end
 
 function Admin:GetAccess( ply )
 	return Secure.Levels[ ply:SteamID() ] or Admin.Level.None
+	
+	if (ply:CheckGroup("superadmin")) then return Admin.Level.Super
+	elseif (ply:CheckGroup("admin")) then return Admin.Level.Admin
+	elseif (ply:CheckGroup("operator")) then return Admin.Level.Moderator
+	elseif (ply:CheckGroup("moderator")) then return Admin.Level.Elevated
+	else return Admin.Level.None
+	end
+	
 end
 
 function Admin:CanAccess( ply, required )
@@ -188,9 +196,9 @@ function Admin:CheckPlayerStatus( ply, reload )
 		ply:SetUserGroup( "admin" )
 	end
 	
-	if nAccess >= Admin.Level.Base then
-		Admin:SetAccessIcon( ply, nAccess )
-	end
+	--if nAccess >= Admin.Level.Base then
+	--	Admin:SetAccessIcon( ply, nAccess )
+	--end
 	
 	if not reload and SQL.Available then
 		Admin:CheckBan( ply )
