@@ -97,6 +97,8 @@ function Command:Init()
 	self:Register( { "restart", "r", "respawn", "kill" }, function( ply )
 		Command:RemoveLimit( ply )
 		Command.Restart( ply )
+		
+		
 	end )
 	
 	self:Register( { "spectate", "spec", "watch", "view" }, function( ply, args )
@@ -665,6 +667,11 @@ function Command:Init()
 		Command.Style( ply, nil, { _C.Style.Normal } )
 	end )
 	
+	self:Register( { "higrav", "highgravity", "hg", "altgrav" }, function( ply )
+		Command:RemoveLimit( ply )
+		Command.Style( ply, nil, { _C.Style.HighGravity } )
+	end )
+	
 	self:Register( { "sideways", "sw" }, function( ply )
 		Command:RemoveLimit( ply )
 		Command.Style( ply, nil, { _C.Style.SW } )
@@ -716,6 +723,16 @@ function Command:Init()
 
 	self:Register( { "wrsw", "wrsideways", "swwr" }, function( ply, args )
 		local nStyle, nPage = _C.Style.SW, 1
+		if #args > 0 then
+			Player:SendRemoteWRList( ply, args[ 1 ], nStyle, nPage )
+		else
+			Core:Send( ply, "GUI_Open", { "WR", { 2, Timer:GetRecordList( nStyle, nPage ), nStyle, nPage, Timer:GetRecordCount( nStyle ) } } )
+		end
+	end )
+	
+	
+	self:Register( { "wrhg", "wrhigrav", "wrhighgravity" }, function( ply, args )
+		local nStyle, nPage = _C.Style.HighGravity, 1
 		if #args > 0 then
 			Player:SendRemoteWRList( ply, args[ 1 ], nStyle, nPage )
 		else
@@ -914,10 +931,29 @@ function Command.Restart( ply )
 		if ply.WeaponsFlipped then
 			Core:Send( ply, "Client", { "WeaponFlip", true } )
 		end
+		
+		
+		if ply.Style == _C.Style.HighGravity then
+			ply:SetGravity(1)
+		else
+			ply:SetGravity(_C["Player"].GravityMultiplier)
+		end
+		
 	else
 		Core:Send( ply, "Print", { "Bhop Timer", Lang:Get( "SpectateRestart" ) } )
 	end
 end
+
+-- fix gravity on ladder touches
+hook.Add("KeyPress","CheckGravityAgain",function(ply,key)
+	if key && ply:GetMoveType(MOVETYPE_LADDER ) then
+		if ply.Style == _C.Style.HighGravity then
+			ply:SetGravity(1)
+		else
+			ply:SetGravity(_C["Player"].GravityMultiplier)
+		end
+	end
+end)
 
 function Command.Style( ply, _, varArgs )
 	if not Command:Possible( ply ) then return end

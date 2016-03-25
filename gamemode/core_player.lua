@@ -10,6 +10,7 @@ PLAYER.UnDuckSpeed			= 0.2
 PLAYER.JumpPower				= _C["Player"].JumpPower
 PLAYER.AvoidPlayers				= false
 
+
 function PLAYER:Loadout()
 	self.Player:StripWeapons()
 	

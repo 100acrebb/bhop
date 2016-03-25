@@ -294,7 +294,7 @@ function Window:LoadData( szIdentifier, varArgs, varUpdate )
 			if wnd.nPage == wnd.nPages then wnd.Labels[9]:SetVisible( false ) end
 		end
 	elseif szIdentifier == "Style" then
-		for i = _C.Style.Normal, _C.Style.Practice do
+		for i = _C.Style.Normal, _C.Style.HighGravity do
 			wnd.Labels[ i ] = Window.MakeLabel{ parent = ActiveWindow, x = 15, y = wnd.Offset, font = Fonts.StrongLabel, color = i == Timer.Style and _C.Prefixes.Notification or GUIColor.White, text = i .. ". " .. Core:StyleName( i ) }
 			wnd.Offset = wnd.Offset + 20
 		end

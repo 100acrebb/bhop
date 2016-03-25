@@ -21,12 +21,13 @@ _C["SteamGroup"] = "" -- Set this to your group URL if you want people to see a 
 _C["MaterialID"] = "flow" -- Change this to the name of the folder in content/materials/
 
 _C["Team"] = { Players = 1, Spectator = TEAM_SPECTATOR }
-_C["Style"] = { Normal = 1, SW = 2, HSW = 3, ["W-Only"] = 4, ["A-Only"] = 5, Legit = 6, ["Easy Scroll"] = 7, Bonus = 8, Practice = 9 }
+_C["Style"] = { Normal = 1, SW = 2, HSW = 3, ["W-Only"] = 4, ["A-Only"] = 5, Legit = 6, ["Easy Scroll"] = 7, Bonus = 8, Practice = 9, HighGravity = 10 }
 
 _C["Player"] = {
 	DefaultModel = "models/player/group01/male_01.mdl",
 	DefaultWeapon = "weapon_glock",
 	JumpPower = 290,
+	GravityMultiplier = 0.75,
 	ScrollPower = 268.4,
 	HullMin = Vector( -16, -16, 0 ),
 	HullDuck = Vector( 16, 16, 45 ),

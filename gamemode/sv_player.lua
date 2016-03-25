@@ -12,6 +12,7 @@ function Player:Spawn( ply )
 	ply:SetModel( _C["Player"].DefaultModel )
 	ply:SetTeam( _C["Team"].Players )
 	ply:SetJumpPower( _C["Player"].JumpPower )
+	ply:SetGravity( _C["Player"].GravityMultiplier )
 	ply:SetHull( _C["Player"].HullMin, _C["Player"].HullStand )
 	ply:SetHullDuck( _C["Player"].HullMin, _C["Player"].HullDuck )
 	ply:SetNoCollideWithTeammates( true )
@@ -142,6 +143,8 @@ function Player:LoadStyle( ply, nStyle )
 	
 	ply:SetNWInt( "Style", ply.Style )
 	ply:SetNWFloat( "Record", ply.Record )
+	
+	
 	
 	Core:Send( ply, "Print", { "Bhop Timer", Lang:Get( "StyleChange", { Core:StyleName( ply.Style ) } ) } )
 end

@@ -212,7 +212,8 @@ local RC = {
 	[_C.Style["A-Only"]] = { Total = 0, Count = 0, Average = 0 },
 	[_C.Style["Easy Scroll"]] = { Total = 0, Count = 0, Average = 0 },
 	[_C.Style.Legit] = { Total = 0, Count = 0, Average = 0 },
-	[_C.Style.Bonus] = { Total = 0, Count = 0, Average = 0 }
+	[_C.Style.Bonus] = { Total = 0, Count = 0, Average = 0 },
+	[_C.Style.HighGravity] = { Total = 0, Count = 0, Average = 0 }
 }
 
 local TC = {
@@ -223,7 +224,8 @@ local TC = {
 	[_C.Style["A-Only"]] = { Total = 0, Count = 0, Average = 0 },
 	[_C.Style["Easy Scroll"]] = {},
 	[_C.Style.Legit] = {},
-	[_C.Style.Bonus] = {}
+	[_C.Style.Bonus] = {},
+	[_C.Style.HighGravity] = {}
 }
 
 local IR = {}

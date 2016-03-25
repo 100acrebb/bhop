@@ -8,7 +8,8 @@ Cache.T_Data = {
 	[_C.Style["A-Only"]] = {},
 	[_C.Style["Easy Scroll"]] = {},
 	[_C.Style.Legit] = {},
-	[_C.Style.Bonus] = {}
+	[_C.Style.Bonus] = {},
+	[_C.Style.HighGravity] = {}
 }
 Cache.T_Mode = _C.Style.Normal
 
