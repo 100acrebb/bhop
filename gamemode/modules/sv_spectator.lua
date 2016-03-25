@@ -34,7 +34,7 @@ local function CheckAFKs()
 	
 	PlayerAFK = {}
 end
-timer.Create( "CheckAFK", 300, 0, CheckAFKs )
+--timer.Create( "CheckAFK", 300, 0, CheckAFKs )
 
 function Spectator:AddChat( ply ) PlayerAFK[ ply ] = (PlayerAFK[ ply ] or 0) + 5 end
 
