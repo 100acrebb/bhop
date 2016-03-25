@@ -63,8 +63,8 @@ Secure.Setup = {
 	
 	{ 9, "Set zone height", Admin.Level.Admin, { 390, 237, 100, 25 } },
 	{ 19, "Set bot frame", Admin.Level.Admin, { 495, 237, 100, 25 } },
-	{ 20, "Cancel map vote", Admin.Level.Admin, { 600, 237, 100, 25 } },
-	{ 31, "Request screen", Admin.Level.Admin, { 705, 237, 100, 25, true } },
+	{ 20, "Cancel map vote", Admin.Level.Owner, { 600, 237, 100, 25 } },
+	{ 31, "Request screen", Admin.Level.Owner, { 705, 237, 100, 25, true } },
 	
 	-- Development functionality
 	{ 17, "Remove time", Admin.Level.Admin, { 390, 292, 100, 25 } },
@@ -145,14 +145,20 @@ end
 
 
 function Admin:GetAccess( ply )
-	return Secure.Levels[ ply:SteamID() ] or Admin.Level.None
 	
-	if (ply:CheckGroup("superadmin")) then return Admin.Level.Super
-	elseif (ply:CheckGroup("admin")) then return Admin.Level.Admin
-	elseif (ply:CheckGroup("operator")) then return Admin.Level.Moderator
-	elseif (ply:CheckGroup("moderator")) then return Admin.Level.Elevated
-	else return Admin.Level.None
+	if (ply:CheckGroup("superadmin")) then 
+		return Admin.Level.Super
+	elseif (ply:CheckGroup("admin") or ply:query("bhop_config")) then
+		return Admin.Level.Admin
+	elseif (ply:CheckGroup("operator")) then 
+		return Admin.Level.Moderator
+	elseif (ply:CheckGroup("moderator")) then 
+		return Admin.Level.Elevated
 	end
+	
+	--return Secure.Levels[ ply:SteamID() ] or Admin.Level.None
+	return Admin.Level.None
+	
 	
 end
 
@@ -200,9 +206,9 @@ function Admin:CheckPlayerStatus( ply, reload )
 	--	Admin:SetAccessIcon( ply, nAccess )
 	--end
 	
-	if not reload and SQL.Available then
-		Admin:CheckBan( ply )
-	end
+	--if not reload and SQL.Available then
+	--	Admin:CheckBan( ply )
+	--end
 end
 
 -- Summary: Sends a message to the master server which then saves it in the database
