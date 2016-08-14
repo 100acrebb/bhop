@@ -147,7 +147,7 @@ end
 function Admin:GetAccess( ply )
 	
 	if (ply:CheckGroup("superadmin")) then 
-		return Admin.Level.Super
+		return Admin.Level.Owner
 	elseif (ply:CheckGroup("admin") or ply:query("bhop_config")) then
 		return Admin.Level.Admin
 	elseif (ply:CheckGroup("operator")) then 
@@ -856,7 +856,7 @@ function Admin:CreateWindow( ply )
 	}
 	
 	if access < Admin.Level.Elevated then return end
-	if access > Admin.Level.Admin then tab.Width = tab.Width + 105 end
+	if access >= Admin.Level.Admin then tab.Width = tab.Width + 105 end
 	
 	table.insert( tab, { Type = "DButton", Close = true, Modifications = { ["SetPos"] = { tab.Width - 25, 8 }, ["SetSize"] = { 16, 16 }, ["SetText"] = { "X" } } } )
 	table.insert( tab, { Type = "DListView", Label = "PlayerList", Modifications = { ["SetMultiSelect"] = { false }, ["SetPos"] = { 20, 42 }, ["SetSize"] = { 360, 360 }, ["Sequence"] = { { "AddColumn", { "Player" } }, { "AddColumn", { "Steam ID" }, "SetFixedWidth", 120 }, { "AddColumn", { "Authority" } } } } } )
